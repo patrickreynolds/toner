@@ -91,7 +91,7 @@ toner.addFilters(document.getElementById('logo2'), {
 
 ```javascript
 // Remove a filter from a previously applied tone
-toner.removeFilters(document.getElementById('logo2'), "contrast")
+toner.removeFilters(document.getElementById('logo2'), "opacity")
 ```
 
 ###### Before
