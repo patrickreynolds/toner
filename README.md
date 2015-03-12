@@ -1,49 +1,71 @@
-# toner.js
+# Toner.js
 ==========
+- [Summary](#summary)
+- [Examples](#examples)
+- [TODO List](#todo-list)
+
+
+## Summary
+----------
 Photo filter utilities for image manipulation
 
-## Quick Examples
 
-	// Apply a tone to a single photo
-	toner.tone(document.getElementById('logo'), {
-        sepia:  50,
-        invert: 20
-    })
-	
-	// Apply a tone to multiple photos
-	toner.tone(document.getElementsByClassName('photo'), {
-        sepia:  50,
-        invert: 70,
-        contrast: 140
-    })
-	
-	// Create reusable tones
-	var contrastTone = toner.createTone({ contrast: 40 })
-	toner.tone(document.getElementById('photo'), contrastTone)
+## Examples
+-----------
+```javascript  
+// Apply a tone to a single photo
+toner.tone(document.getElementById('logo'), {
+    sepia:  50,
+    invert: 20
+})
 
-	// Get the current value for a filter within a tone
-    console.log(toner.get(ev.target, 'sepia'))
+// Apply a tone to multiple photos
+toner.tone(document.getElementsByClassName('photo'), {
+    sepia:  50,
+    invert: 70,
+    contrast: 140
+})
 
-    // Add a single additional filter after a tone has been applied
-    toner.addFilters(document.getElementById('logo2'), {
-        sepia: 50
-    })
-    toner.addFilters(document.getElementById('logo2'), {
-        invert: 20
-    })
+// Create reusable tones
+var contrastTone = toner.createTone({ contrast: 40 })
+toner.tone(document.getElementById('photo'), contrastTone)
 
-    // Add multiple filters after a tone has been applied
-    toner.addFilters(document.getElementById('logo2'), {
-        sepia: 40,
-        invert: 20
-    })
+// Get the current value for a filter within a tone
+console.log(toner.get(ev.target, 'sepia'))
 
-    // Remove a filter from a previously applied tone
-    toner.removeFilters(document.getElementById('logo2'), "contrast")
+// Add a single additional filter after a tone has been applied
+toner.addFilters(document.getElementById('logo2'), {
+    sepia: 50
+})
+toner.addFilters(document.getElementById('logo2'), {
+    invert: 20
+})
 
-    // Remove multiple filters from a previously applied tone
-    toner.removeFilters(document.getElementById('logo3'), ["contrast", "invert"])
+// Add multiple filters after a tone has been applied
+toner.addFilters(document.getElementById('logo2'), {
+    sepia: 40,
+    invert: 20
+})
 
-    // Remove a tone all together
-    toner.removeTone(document.getElementsByClassName('photo'))
-	
+// Remove a filter from a previously applied tone
+toner.removeFilters(document.getElementById('logo2'), "contrast")
+
+// Remove multiple filters from a previously applied tone
+toner.removeFilters(document.getElementById('logo3'), ["contrast", "invert"])
+
+// Remove a tone all together
+toner.removeTone(document.getElementsByClassName('photo'))  
+```
+
+#### TODO List
+--------------
+- [x] Apply a custom tone
+- [x] Create a custom tone
+- [x] Update an applied tone
+- [x] Remove filters from previously applied tones
+- [x] Remove a previously applied tone
+- [x] Get filter values from an applied tone
+- [ ] Handle bounds checking per filter attribute
+- [ ] Increase performance using requestAnimationFrame for fast incrementation/decrementation
+- [ ] Implement model and browser tests
+- [ ] Persistent id per item for predictable localstorage restores, even when # items changes
