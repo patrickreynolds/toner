@@ -15,10 +15,18 @@ Photo filter utilities for image manipulation
 ```javascript  
 // Apply a tone to a single photo
 toner.tone(document.getElementById('logo'), {
-    sepia:  50,
-    invert: 20
+    sepia:  70,
+    brightness: 200
 })
+```  
+###### Before
+[logo]: https://git.corp.adobe.com/XD/toner.js/tree/master/examples/images/before-tone.png "Before Applying Tone"
 
+###### After
+[logo]: https://git.corp.adobe.com/XD/toner.js/tree/master/examples/images/after-tone.png "After Applying Tone"
+
+
+```javascript
 // Apply a tone to multiple photos
 toner.tone(document.getElementsByClassName('photo'), {
     sepia:  50,
