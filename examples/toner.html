@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Toner.js - Sepia Example</title>
+        <style type="text/css">
+            body {
+                text-align: center;
+            }
+            #logo {
+                width: 80%;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="tone-single">Tone</button>
+        <button id="tone-multiple">Multiple</button>
+        <button id="tone-reusable">Reusable</button>
+        <button id="tone-add">Add Tone</button>
+        <button id="tone-add-multiple">Add Tones</button>
+        <button id="remove-single">Remove Single</button>
+        <button id="remove-multiple">Remove Multiple</button>
+        <button id="remove-all">Clear Tone</button> 
+        <br /><br />
+        <img id="logo" class="photo" src="images/creative_cloud.jpg" style="height: 200; width: 300;">
+        <img id="logo2" class="photo" src="images/creative_cloud.jpg" style="height: 200; width: 300;">
+        <img id="logo3" class="photo" src="images/creative_cloud.jpg" style="height: 200; width: 300;">
+        <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+        <script src="../toner.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#tone-single').on('click', function() {
+                    toner.tone(document.getElementById('logo'), {
+                        sepia:  50,
+                        invert: 20
+                    })
+                })
+
+                $('#tone-multiple').on('click', function(ev) {
+                    toner.tone(document.getElementsByClassName('photo'), {
+                        sepia:  50,
+                        invert: 70,
+                        contrast: 140
+                    })
+                })
+
+                $('#tone-reusable').on('click', function() {
+                    var newTone = toner.createTone({
+                        blur: 2
+                    })
+                    toner.tone(document.getElementById('logo'), newTone)
+                })
+                
+                $('#tone-get').on('click', function() {
+                    console.log(toner.get(document.getElementById('logo'), "sepia"))
+                })
+
+                $('#tone-add').on('click', function() {
+                    toner.addFilters(document.getElementById('logo2'), {
+                        sepia: 50
+                    })
+                    toner.addFilters(document.getElementById('logo2'), {
+                        invert: 20
+                    })
+                })
+
+                $('#tone-add-multiple').on('click', function() {
+                    toner.addFilters(document.getElementById('logo2'), {
+                        sepia: 40,
+                        invert: 20
+                    })
+                })
+
+                $('#remove-single').on('click', function() {
+                    toner.removeFilters(document.getElementById('logo2'), "contrast")
+                })
+
+                $('#remove-multiple').on('click', function() {
+                    toner.removeFilters(document.getElementById('logo3'), ["contrast", "invert"])
+                })
+
+                $('#remove-all').on('click', function() {
+                    toner.removeTones(document.getElementsByClassName('photo'))
+                })
+
+                $('.photo').click(function(ev) {
+                    console.log(toner.get(ev.target, 'sepia'))
+                })
+            })
+        </script>
+    </body>
+</html>

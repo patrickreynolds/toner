@@ -1,0 +1,24 @@
+{
+    "name": "toner",
+    "title": "Toner.js",
+    "description": "Photo filter utilities for image manipulation.",
+    "tags": [
+        "filter",
+        "photo",
+        "images",
+        "utility"
+    ],
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "git@git.corp.adobe.com:XD/toner.js.git"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+    },
+    "main": "toner.js",
+    "engines": {
+        "node": ">=0.10.0"
+    }
+}
