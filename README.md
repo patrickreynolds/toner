@@ -19,11 +19,11 @@ toner.tone(document.getElementById('logo'), {
     brightness: 200
 })
 ```  
-###### Before
-[logo]: https://git.corp.adobe.com/XD/toner.js/tree/master/examples/images/before-tone.png "Before Applying Tone"
 
+###### Before
+![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-tone.png)
 ###### After
-[logo]: https://git.corp.adobe.com/XD/toner.js/tree/master/examples/images/after-tone.png "After Applying Tone"
+![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-tone.png)
 
 
 ```javascript
@@ -33,37 +33,94 @@ toner.tone(document.getElementsByClassName('photo'), {
     invert: 70,
     contrast: 140
 })
+```
 
+###### Before
+![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-tone-multiple.png)
+###### After
+![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-tone-multiple.png)
+
+
+```javascript
 // Create reusable tones
-var contrastTone = toner.createTone({ contrast: 40 })
-toner.tone(document.getElementById('photo'), contrastTone)
+var grayscaleTone = toner.createTone({ grayscale: 100 })
+toner.tone(document.getElementById('logo'), grayscaleTone)
+```
 
+###### Before
+![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-create-tone.png)
+###### After
+![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-create-tone.png)
+
+
+```javascript
 // Get the current value for a filter within a tone
-console.log(toner.get(ev.target, 'sepia'))
+console.log(toner.get(document.getElementById('logo'), 'grayscale'))
+> 100
+```
 
+```javascript
 // Add a single additional filter after a tone has been applied
 toner.addFilters(document.getElementById('logo2'), {
-    sepia: 50
+    sepia: 70
 })
 toner.addFilters(document.getElementById('logo2'), {
-    invert: 20
+    brightness: 200
 })
+```
 
+###### Before
+![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filter-add.png)
+###### After
+![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filter-add.png)
+
+
+```javascript
 // Add multiple filters after a tone has been applied
 toner.addFilters(document.getElementById('logo2'), {
-    sepia: 40,
-    invert: 20
+    sepia: 70,
+    brightness: 200
 })
+```
 
+###### Before
+![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filter-add.png)
+###### After
+![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filter-add.png)
+
+
+```javascript
 // Remove a filter from a previously applied tone
 toner.removeFilters(document.getElementById('logo2'), "contrast")
+```
 
+###### Before
+![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filter-remove.png)
+###### After
+![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filter-remove.png)
+
+
+```javascript
 // Remove multiple filters from a previously applied tone
-toner.removeFilters(document.getElementById('logo3'), ["contrast", "invert"])
+toner.removeFilters(document.getElementById('logo3'), ["saturate", "opacity"])
+```
 
+###### Before
+![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filters-remove.png)
+###### After
+![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filters-remove.png)
+
+
+```javascript
 // Remove a tone all together
 toner.removeTone(document.getElementsByClassName('photo'))  
 ```
+
+###### Before
+![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filters-remove.png)
+###### After
+![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filters-remove.png)
+
 
 ## TODO List
 

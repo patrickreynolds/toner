@@ -185,7 +185,7 @@
     Toner.prototype.grayscale = function(value) {
         value = this._checkLowerBounds(value, 0.0);
         value = this._checkUpperBounds(value, 100.0);
-        return 'grayscale('+ value +'px)';
+        return 'grayscale('+ value +'%)';
     };
 
     // Value between 0 and 100
