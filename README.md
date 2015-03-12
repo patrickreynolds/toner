@@ -66,6 +66,6 @@ toner.removeTone(document.getElementsByClassName('photo'))
 - [x] Remove a previously applied tone
 - [x] Get filter values from an applied tone
 - [x] Handle bounds checking per filter attribute
-- [ ] Create a build script to lint and minify files
+- [x] Create a build script to lint and minify files
 - [ ] Increase performance using requestAnimationFrame for fast incrementation/decrementation
 - [ ] Implement model and browser tests
