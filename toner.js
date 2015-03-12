@@ -133,7 +133,13 @@
     }
 
     Toner.prototype._trimSuffix = function(value) {
-        return value.slice(-1) === 'x' ? value.slice(0, -2) : value.slice(0, -1)
+        if (value.slice(-1) === 'x') {
+            return value.slice(0, -2)
+        } else if (value.slice(-1) === '%') {
+            return value.slice(0, -1)
+        } else {
+            return value
+        }
     }
 
     Toner.prototype._browser = function(element) {
@@ -149,43 +155,63 @@
             return 'filter'
     }
 
+    Toner.prototype._checkLowerBounds = function(value, lowerBound) {
+        return (parseFloat(value) < lowerBound) ? lowerBound : value
+    }
+
+    Toner.prototype._checkUpperBounds = function(value, upperBound) {
+        return (parseFloat(value) > upperBound) ? upperBound : value
+    }
+
     // Value between 1 and 10
     Toner.prototype.blur = function(value) {
+        value = this._checkLowerBounds(value)
         return 'blur('+ value +'px)'
     }
 
     // Value between 0 and 1
     Toner.prototype.brightness = function(value) {
+        value = this._checkLowerBounds(value)
         return 'brightness('+ value +'%)'
     }
 
     // Value between 0 and 200
     Toner.prototype.contrast = function(value) {
+        value = this._checkLowerBounds(value)
         return 'contrast('+ value +'%)'
     }
 
-    // Value between 0 and 200
+    // Value between 0 and 100
     Toner.prototype.grayscale = function(value) {
+        value = this._checkLowerBounds(value, 0.0)
+        value = this._checkUpperBounds(value, 100.0)
         return 'grayscale('+ value +'px)'
     }
 
     // Value between 0 and 100
     Toner.prototype.invert = function(value) {
+        value = this._checkLowerBounds(value, 0.0)
+        value = this._checkUpperBounds(value, 100.0)
         return 'invert('+ value +'%)'
     }
 
     // Value between 0 and 100
     Toner.prototype.opacity = function(value) {
+        value = this._checkLowerBounds(value, 0.0)
+        value = this._checkUpperBounds(value, 100.0)
         return 'opacity('+ value +'%)'
     }
 
-    // Value between 0 and 200
+    // Value between 0 and 
     Toner.prototype.saturate = function(value) {
+        value = this._checkLowerBounds(value, 0.0)
         return 'saturate('+ value +'%)'
     }
 
     // Value between 0 and 200
     Toner.prototype.sepia = function(value) {
+        value = this._checkLowerBounds(value, 0.0)
+        value = this._checkUpperBounds(value, 100.0)
         return 'sepia('+ value +'%)'
     }
 

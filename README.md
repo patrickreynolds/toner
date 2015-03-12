@@ -1,17 +1,17 @@
 # Toner.js
-==========
+
 - [Summary](#summary)
 - [Examples](#examples)
 - [TODO List](#todo-list)
 
 
 ## Summary
-----------
+
 Photo filter utilities for image manipulation
 
 
 ## Examples
------------
+
 ```javascript  
 // Apply a tone to a single photo
 toner.tone(document.getElementById('logo'), {
@@ -57,15 +57,15 @@ toner.removeFilters(document.getElementById('logo3'), ["contrast", "invert"])
 toner.removeTone(document.getElementsByClassName('photo'))  
 ```
 
-#### TODO List
---------------
+## TODO List
+
 - [x] Apply a custom tone
 - [x] Create a custom tone
 - [x] Update an applied tone
 - [x] Remove filters from previously applied tones
 - [x] Remove a previously applied tone
 - [x] Get filter values from an applied tone
-- [ ] Handle bounds checking per filter attribute
+- [x] Handle bounds checking per filter attribute
+- [ ] Create a build script to lint and minify files
 - [ ] Increase performance using requestAnimationFrame for fast incrementation/decrementation
 - [ ] Implement model and browser tests
-- [ ] Persistent id per item for predictable localstorage restores, even when # items changes
