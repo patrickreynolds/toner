@@ -18,15 +18,11 @@
     }
 
     Toner.prototype.addFilters = function(element, filter) {
-        var currentFilters = element.style[this._browser(element)]
-        var updatedFilters;
-
-        if(filter.constructor === Array) {
-            updatedFilters = this._insertFilters(currentFilters, filter)
-        } else {
-            updatedFilters = this._insertFilter(currentFilters, filter)
-        }
-        this._applyTone(element, updatedFilters)
+        var current = element.style[this._browser(element)]
+        var updated = filter.constructor === Array ? 
+                        this._insertFilters(current, filter) : 
+                        this._insertFilter(current, filter)
+        this._applyTone(element, updated)
     }
 
     Toner.prototype.get = function(element, filterName) {
@@ -45,7 +41,7 @@
 
     Toner.prototype.removeTone = function(selection) {
         if (selection.toString() === '[object HTMLCollection]') {
-            var selectionLength = selection.length;
+            var selectionLength = selection.length
             while(selectionLength--)
                 this._applyTone(selection[selectionLength], this.createTone({}))
         } else {
@@ -59,14 +55,14 @@
 
 
     Toner.prototype._filter = function(tones) {
-        var self = this;
+        var self = this
         var filters = ""
 
         for (var tone in tones) {
             if (tones.hasOwnProperty(tone))
                 filters += self[tone](tones[tone]) + " "
         }
-        return filters;
+        return filters
     }
 
     Toner.prototype._valueForFilter = function(element, name) {
@@ -74,10 +70,10 @@
         var value = ""
         filters.split(" ").forEach(function(filter) {
             if (filter.split('(')[0] === name) {
-                value = filter.split('(')[1].substring(0, filter.split('(')[1].length - 1)
+                value = this._trimSuffix(filter.split('(')[1].slice(0, -1))
             }
-        })
-        return value ? value : 'undefined'
+        }, this)
+        return (value || value === 0) ? value : 'undefined'
     }
 
     Toner.prototype._insertFilter = function(currentFilters, filterToAdd) {
@@ -134,6 +130,10 @@
 
     Toner.prototype._useOrCreateTone = function(tone) {
         return tone.constructor === Object ? this.createTone(tone) : tone
+    }
+
+    Toner.prototype._trimSuffix = function(value) {
+        return value.slice(-1) === 'x' ? value.slice(0, -2) : value.slice(0, -1)
     }
 
     Toner.prototype._browser = function(element) {
