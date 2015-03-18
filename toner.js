@@ -7,9 +7,9 @@
         if (selection.toString() === '[object HTMLCollection]') {
             var selectionLength = selection.length;
             while(selectionLength--)
-                this._applyTone(selection[selectionLength], this._useOrCreateTone(tone));
+                this._applyTone(selection[selectionLength], this._toneDetails(tone));
         } else {
-            this._applyTone(selection, this._useOrCreateTone(tone));
+            this._applyTone(selection, this._toneDetails(tone));
         }
     };
 
@@ -17,25 +17,25 @@
         return this._filter(tones);
     };
 
-    Toner.prototype.addFilters = function(element, filter) {
-        var current = element.style[this._browser(element)];
+    Toner.prototype.addFilters = function(selection, filter) {
+        var current = selection.style[this._browser(selection)];
         var updated = filter.constructor === Array ? 
                         this._insertFilters(current, filter) : 
                         this._insertFilter(current, filter);
-        this._applyTone(element, updated);
+        this._applyTone(selection, updated);
     };
 
-    Toner.prototype.get = function(element, filterName) {
-        return this._valueForFilter(element, filterName);
+    Toner.prototype.get = function(selection, filterName) {
+        return this._valueForFilter(selection, filterName);
     };
 
-    Toner.prototype.removeFilters = function(element, filters) {
+    Toner.prototype.removeFilters = function(selection, filters) {
         if (filters.constructor === Array) {
-            var currentFilters = element.style[this._browser(element)];
+            var currentFilters = selection.style[this._browser(selection)];
             var updatedFilters = this._spliceFilters(currentFilters, filters);
-            this._applyTone(element, updatedFilters);
+            this._applyTone(selection, updatedFilters);
         } else {
-            this._applyTone(element, this._removeFilter(element, filters));
+            this._applyTone(selection, this._removeFilter(selection, filters));
         }
     };
 
@@ -49,8 +49,8 @@
         }
     };
 
-    Toner.prototype._applyTone = function(element, tone) {
-        element.style[this._browser(element)] = tone;
+    Toner.prototype._applyTone = function(selection, tone) {
+        selection.style[this._browser(selection)] = tone;
     };
 
 
@@ -65,8 +65,8 @@
         return filters;
     };
 
-    Toner.prototype._valueForFilter = function(element, name) {
-        var filters = element.style[this._browser(element)];
+    Toner.prototype._valueForFilter = function(selection, name) {
+        var filters = selection.style[this._browser(selection)];
         var value = "";
         filters.split(" ").forEach(function(filter) {
             if (filter.split('(')[0] === name) {
@@ -117,18 +117,18 @@
         return currentFilters;
     };
 
-    Toner.prototype._removeFilter = function(element, filter) {
-        return this._spliceFilter(element.style[this._browser(element)], filter);
+    Toner.prototype._removeFilter = function(selection, filter) {
+        return this._spliceFilter(selection.style[this._browser(selection)], filter);
     };
 
     Toner.prototype._spliceFilter = function(current, filter) {
-        return current.split(' ').filter(function(element) {
-            if (element.indexOf(filter) === -1)
-                return element;
+        return current.split(' ').filter(function(selection) {
+            if (selection.indexOf(filter) === -1)
+                return selection;
         }).join(" ");
     };
 
-    Toner.prototype._useOrCreateTone = function(tone) {
+    Toner.prototype._toneDetails = function(tone) {
         return tone.constructor === Object ? this.createTone(tone) : tone;
     };
 
@@ -142,16 +142,16 @@
         }
     };
 
-    Toner.prototype._browser = function(element) {
-        if (element.style.webkitFilter   || element.style.webkitFilter === "")
+    Toner.prototype._browser = function(selection) {
+        if (selection.style.webkitFilter   || selection.style.webkitFilter === "")
             return 'webkitFilter';
-        else if (element.style.mozFilter || element.style.mozFilter === "")
+        else if (selection.style.mozFilter || selection.style.mozFilter === "")
             return 'mozFilter';
-        else if (element.style.msFilter  || element.style.msFilter === "")
+        else if (selection.style.msFilter  || selection.style.msFilter === "")
             return 'msFilter';
-        else if (element.style.oFilter   || element.style.oFilter === "")
+        else if (selection.style.oFilter   || selection.style.oFilter === "")
             return 'oFilter';
-        else if (element.style.filter    || element.style.filter === "")
+        else if (selection.style.filter    || selection.style.filter === "")
             return 'filter';
     };
 
