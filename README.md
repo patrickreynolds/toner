@@ -15,7 +15,7 @@ Photo filter utilities for image manipulation
 ```javascript  
 // Apply a tone to a single photo
 toner.tone(document.getElementById('logo'), {
-    sepia:  70,
+    sepia:      70,
     brightness: 200
 })
 ```  
@@ -29,8 +29,8 @@ toner.tone(document.getElementById('logo'), {
 ```javascript
 // Apply a tone to multiple photos
 toner.tone(document.getElementsByClassName('photo'), {
-    sepia:  50,
-    invert: 70,
+    sepia:    50,
+    invert:   70,
     contrast: 140
 })
 ```
@@ -79,7 +79,7 @@ toner.addFilters(document.getElementById('logo2'), {
 ```javascript
 // Add multiple filters after a tone has been applied
 toner.addFilters(document.getElementById('logo2'), {
-    sepia: 70,
+    sepia:      70,
     brightness: 200
 })
 ```
