@@ -24,7 +24,6 @@ module.exports = function(grunt) {
                 'toner.js'
             ]
         },
-
         watch: {
             scripts: {
                 files: [
@@ -35,6 +34,12 @@ module.exports = function(grunt) {
                     interrupt: true
                 }
             }
+        },
+        mocha: {
+            test: {
+                reporter: 'spec'
+            },
+            src: ['tests/*.js']
         }
     });
 
@@ -44,8 +49,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-mocha');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('build', ['jshint', 'uglify:min']);
+    grunt.registerTask('test', ['jshint', 'mocha'])
     grunt.registerTask('all', ['build'])
 }
