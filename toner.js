@@ -107,21 +107,11 @@
         filters.split(' ').forEach(function(filter) {
             if (filter) {
                 var filterName = filter.split('(')[0];
-                var value = parseFloat(this._trimSuffix(filter.split('(')[1].slice(0, -1)));
+                var value = parseFloat(filter.split('(')[1].slice(0, -1));
                 tone[filterName] = value;
             }
         }, this);
         return tone;
-    };
-
-    Toner.prototype._trimSuffix = function(value) {
-        if (value.slice(-1) === 'x') {
-            return value.slice(0, -2);
-        } else if (value.slice(-1) === '%') {
-            return value.slice(0, -1);
-        } else {
-            return value;
-        }
     };
 
     Toner.prototype._browser = function(selection) {
