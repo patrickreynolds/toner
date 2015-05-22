@@ -21,9 +21,9 @@ toner.tone(document.getElementById('logo'), {
 ```  
 
 ###### Before
-![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-tone.png)
+![Before](https://github.com/patrickreynolds/toner/blob/master/examples/images/before-tone.png)
 ###### After
-![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-tone.png)
+![After](https://github.com/patrickreynolds/toner/blob/master/examples/images/after-tone.png)
 
 ---
 ```javascript
@@ -36,9 +36,9 @@ toner.tone(document.getElementsByClassName('photo'), {
 ```
 
 ###### Before
-![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-tone-multiple.png)
+![Before](https://github.com/patrickreynolds/toner/blob/master/examples/images/before-tone-multiple.png)
 ###### After
-![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-tone-multiple.png)
+![After](https://github.com/patrickreynolds/toner/blob/master/examples/images/after-tone-multiple.png)
 
 ---
 ```javascript
@@ -48,9 +48,9 @@ toner.tone(document.getElementById('logo'), grayscaleTone)
 ```
 
 ###### Before
-![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-create-tone.png)
+![Before](https://github.com/patrickreynolds/toner/blob/master/examples/images/before-create-tone.png)
 ###### After
-![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-create-tone.png)
+![After](https://github.com/patrickreynolds/toner/blob/master/examples/images/after-create-tone.png)
 
 ---
 ```javascript
@@ -71,9 +71,9 @@ toner.addFilters(document.getElementById('logo2'), {
 ```
 
 ###### Before
-![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filter-add.png)
+![Before](https://github.com/patrickreynolds/toner/blob/master/examples/images/before-filter-add.png)
 ###### After
-![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filter-add.png)
+![After](https://github.com/patrickreynolds/toner/blob/master/examples/images/after-filter-add.png)
 
 ---
 ```javascript
@@ -85,9 +85,9 @@ toner.addFilters(document.getElementById('logo2'), {
 ```
 
 ###### Before
-![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filter-add.png)
+![Before](https://github.com/patrickreynolds/toner/blob/master/examples/images/before-filter-add.png)
 ###### After
-![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filter-add.png)
+![After](https://github.com/patrickreynolds/toner/blob/master/examples/images/after-filter-add.png)
 
 ---
 ```javascript
@@ -96,9 +96,9 @@ toner.removeFilters(document.getElementById('logo2'), "opacity")
 ```
 
 ###### Before
-![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filter-remove.png)
+![Before](https://github.com/patrickreynolds/toner/blob/master/examples/images/before-filter-remove.png)
 ###### After
-![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filter-remove.png)
+![After](https://github.com/patrickreynolds/toner/blob/master/examples/images/after-filter-remove.png)
 
 ---
 ```javascript
@@ -107,9 +107,9 @@ toner.removeFilters(document.getElementById('logo3'), ["saturate", "opacity"])
 ```
 
 ###### Before
-![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filters-remove.png)
+![Before](https://github.com/patrickreynolds/toner/blob/master/examples/images/before-filters-remove.png)
 ###### After
-![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filters-remove.png)
+![After](https://github.com/patrickreynolds/toner/blob/master/examples/images/after-filters-remove.png)
 
 ---
 ```javascript
@@ -118,9 +118,9 @@ toner.removeTone(document.getElementsByClassName('photo'))
 ```
 
 ###### Before
-![Before](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/before-filters-remove.png)
+![Before](https://github.com/patrickreynolds/toner/blob/master/examples/images/before-filters-remove.png)
 ###### After
-![After](https://git.corp.adobe.com/XD/toner.js/blob/master/examples/images/after-filters-remove.png)
+![After](https://github.com/patrickreynolds/toner/blob/master/examples/images/after-filters-remove.png)
 
 ---
 ## TODO List
