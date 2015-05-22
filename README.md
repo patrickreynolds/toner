@@ -7,7 +7,7 @@
 
 ## Summary
 
-Photo filter utilities for image manipulation
+Toner is a library to wrap the css filter effects found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/filter).
 
 
 ## Examples
